@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Valentine, Punk!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      background: url('your-background.jpg') no-repeat center center/cover;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      padding: 0 20px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #ff6f61;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background-color: #ff3d3d;
+      transform: scale(1.1);
+    }
+
+    .no-btn {
+      position: absolute;
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Will you be my Valentine, Punk? :)</h1>
+  <div class="buttons">
+    <button class="yes-btn">Yes :)</button>
+    <button class="no-btn">No :(</button>
+  </div>
+
+  <script>
+    const yesBtn = document.querySelector('.yes-btn');
+    const noBtn = document.querySelector('.no-btn');
+
+    // Redirect to the new page when "Yes" is clicked
+    yesBtn.addEventListener('click', () => {
+      window.location.href = "valentine-love.html"; // Redirect to the second page
+    });
+
+    // Make the "No" button avoid the mouse
+    noBtn.addEventListener('mouseenter', () => {
+      const randomX = Math.floor(Math.random() * (window.innerWidth - 100));
+      const randomY = Math.floor(Math.random() * (window.innerHeight - 50));
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+    });
+
+    // Set the initial position of the "No" button
+    noBtn.style.left = "50%";
+    noBtn.style.top = "50%";
+  </script>
+</body>
+</html>
