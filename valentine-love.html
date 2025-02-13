@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Love You, Punk!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      background: url('your-image-or-gif.gif') no-repeat center center/cover; /* Set the GIF as the background */
+      font-family: 'Arial', sans-serif;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      position: relative; /* Allow absolute positioning of child elements */
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      padding: 0 20px;
+      background-color: rgba(255, 107, 97, 0.7); /* Semi-transparent background for better readability */
+      border-radius: 10px; /* Rounded corners */
+      padding: 15px; /* Padding for the text */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 1.5rem;
+    }
+
+    /* Styles for the additional images */
+    .floating-image {
+      position: absolute;
+      width: 300px; /* Increased width for better visibility (2x larger) */
+      height: auto; /* Maintain aspect ratio */
+      opacity: 0.8; /* Slightly transparent */
+      transition: top 0.5s, left 0.5s; /* Smooth transition for movement */
+    }
+  </style>
+</head>
+<body>
+  <p>Yay! I love you Punk :)</p>
+  <img src="your-image-or-gif.gif" alt="Love Image"> <!-- Replace with your GIF file -->
+  <p>Knew you'd say Yes! ❤️</p> <!-- Updated line -->
+  <h1>See you 14th February, 2025!!!</h1>
+
+  <!-- Floating images -->
+  <img src="punk.jpg" alt="Punk" class="floating-image" id="image1" style="top: 10%; left: 20%;">
+  <img src="punkk.jpg" alt="Punkk" class="floating-image" id="image2" style="top: 30%; left: 50%;">
+  <img src="punkkk.jpg" alt="Punkkk" class="floating-image" id="image3" style="top: 60%; left: 70%;">
+  <img src="punkkkk.jpg" alt="Punkkkk" class="floating-image" id="image4" style="top: 40%; left: 30%;">
+  <img src="punkkkkk.jpg" alt="Punkkkkk" class="floating-image" id="image5" style="top: 80%; left: 10%;">
+  <img src="punkkkkkk.jpg" alt="Punkkkkkk" class="floating-image" id="image6" style="top: 20%; left: 80%;">
+
+  <script>
+    // Function to move images randomly
+    function moveImages() {
+      const images = document.querySelectorAll('.floating-image');
+      images.forEach(image => {
+        const randomX = Math.random() * (window.innerWidth - 300); // Adjust for image width
+        const randomY = Math.random() * (window.innerHeight - 100); // Adjust for image height
+        image.style.left = `${randomX}px`;
+        image.style.top = `${randomY}px`;
+      });
+    }
+
+    // Move images every 2 seconds
+    setInterval(moveImages, 2000);
+  </script>
+</body>
+</html>

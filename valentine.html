@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Valentine, Punk!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      background: url('your-background.jpg') no-repeat center center/cover; /* Replace with your background image */
+      font-family: 'Arial', sans-serif;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      padding: 0 20px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px; /* Increased padding for larger buttons */
+      font-size: 2rem; /* Increased font size */
+      font-weight: bold;
+      color: #fff;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      transform: scale(2); /* Start at 2x size */
+    }
+
+    button:hover {
+      transform: scale(2.1); /* Slightly increase size on hover */
+    }
+
+    .yes-btn img {
+      width: 100px; /* Set a larger width for the Nemo GIF */
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .no-btn img {
+      width: 100px; /* Set a larger width for the Dory GIF */
+      height: auto;
+      margin-right: 10px; /* Space between text and GIF */
+    }
+
+    .no-btn {
+      position: absolute; /* Allow it to move freely */
+    }
+  </style>
+</head>
+<body>
+  <h1>Will you be my Valentine, Punk? :)</h1>
+  <div class="buttons">
+    <!-- Yes Button -->
+    <button class="yes-btn">
+      <img src="nemo.gif" alt="Yes">
+      Yes :)
+    </button>
+    <!-- No Button -->
+    <button class="no-btn">
+      <img src="dory.gif" alt="No">
+      No :(
+    </button>
+  </div>
+
+  <script>
+    const yesBtn = document.querySelector('.yes-btn');
+    const noBtn = document.querySelector('.no-btn');
+    let scale = 2; // Initial scale for the Yes button
+
+    // Redirect to the new page when "Yes" is clicked
+    yesBtn.addEventListener('click', () => {
+      window.location.href = "valentine-love.html"; // Redirect to the second page
+    });
+
+    // Function to move the "No" button randomly
+    function moveNoButton() {
+      const randomX = Math.floor(Math.random() * (window.innerWidth - 150)); // Adjusted for button size
+      const randomY = Math.floor(Math.random() * (window.innerHeight - 100)); // Adjusted for button size
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+    }
+
+    // Move the "No" button every 2 seconds
+    setInterval(moveNoButton, 2000);
+
+    // Enlarge the Yes button by 1.1x every second
+    setInterval(() => {
+      scale *= 1.1; // Increase scale by 10%
+      yesBtn.style.transform = `scale(${scale})`; // Apply the new scale
+    }, 1000);
+
+    // Set the initial position of the "No" button
+    moveNoButton(); // Initial position
+  </script>
+</body>
+</html>
